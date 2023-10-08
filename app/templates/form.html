@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %} Formulário {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <form method="post" class="needs-validation" autocomplete="off" novalidate>
+        {{ form.csrf_token }}
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card card-top-border">
+                    <div class="card-body">
+                        <h1 class="h2 fw-bolder">OCI Simple Form</h1>     
+                        <p class="fs-5">Formulário de exemplo</p>                                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>        
+        <div class="row pt-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="id_nome" class="form-label fs-4 pb-2">
+                                Qual é o seu nome? <span class="text-danger">*</span>
+                            </label>
+                            {{ form.nome(class_="form-control form-control-lg", id_="id_nome") }}                            
+                            <div class="invalid-feedback">
+                                Por favor, preencha com o seu nome.
+                            </div>                            
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row pt-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="id_email" class="form-label fs-4 pb-2">
+                                Qual é o seu e-mail? <span class="text-danger">*</span>
+                            </label>
+                            {{ form.email(class_="form-control form-control-lg", id_="id_email") }} 
+                            <div class="invalid-feedback">
+                                Por favor, preencha com o seu e-mail.
+                            </div>                                  
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row pt-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <p class="form-label fs-4 pb-2"> 
+                                Qual é o seu esporte favorito?
+                            </p>                               
+                            {% for esporte in form.esporte %}
+                               <div class="form-check pb-2">
+                                    {{ esporte(class_="form-check-input") }}
+                                    {{ esporte.label(class_="form-check-label") }}                                    
+                               </div>
+                            {% endfor %}                                             
+                            <div class="invalid-feedback">
+                                Por favor, selecione um item da lista.
+                            </div>                                             
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row pt-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="id_atvfisica" class="form-label fs-4 pb-2">
+                                Você pratica atividade física regularmente? <span class="text-danger">*</span>
+                            </label>
+                            {{ form.atvfisica(class_="form-select w-25", id_="id_atvfisica") }}                             
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma das opções disponíveis.
+                            </div>                  
+                        </div>                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <br>
+        <div class="row pt-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary btn-lg fw-semibold"> 
+                    &nbsp;&nbsp; Enviar &nbsp;&nbsp; 
+                </button>
+            </div>                
+            <div class="col-md-3"></div>            
+        </div>
+    </form>    
+</div>
+<script type="text/javascript">
+    (() => {
+        'use strict';        
+        const forms = document.querySelectorAll('.needs-validation');        
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
+{% endblock %}

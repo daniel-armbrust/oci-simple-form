@@ -1,0 +1,28 @@
+body {
+    background-color: #F0EFED;    
+    padding-top: 45px;
+    padding-bottom: 45px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-top-border {
+   border-top: 12px solid #312D2A;
+}
+
+input[type="text"], input[type="email"] {
+    background: none !important;
+    border: 0;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: 0px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #a4a4a4;
+    border-radius: 0;
+    font-size: 20px;
+    color: #626262;
+    padding-left: 0px;
+    margin-bottom: 15px;
+    background-color: transparent;    
+    -webkit-appearance: none;    
+}
