@@ -26,6 +26,6 @@ RUN adduser -l -d /opt/oci-simple-form webapp
 COPY --chown=webapp:webapp ./app /opt/oci-simple-form/
 
 USER webapp
-EXPOSE 5000
+EXPOSE 5000/tcp
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
